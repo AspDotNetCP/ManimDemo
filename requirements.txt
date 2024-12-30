@@ -1,0 +1,16 @@
+
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+
+choco install manimce
+
+choco install manim-latex
+
+choco install vscode
+pip install tkvideo
+
+SPlendidnom
+manim -pql Example.py TransparentCircleScene
+manim -pql example.py ExampleScene -s -o frames_folder
+ffmpeg -i media/images/example/480p15/frames_folder/frame_%04d.png
+ffmpeg -i input_video.mp4 frames_folder/frame_%04d.png
+ffmpeg -i C:/Downloads/ManimDemo/media/videos/example/480p15/AnimatedSquareToCircle.mp4 C:/Downloads/ManimDemo/Animate_%04d.png
